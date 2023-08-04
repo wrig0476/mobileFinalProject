@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">mobileFinalProject</string>
+    <string name="title">Final Project</string>
+    <string name="aviationTracker">Aviation Tracker</string>
+    <string name="converter">Currency Converter</string>
+    <string name="trivia">Trivia Questions</string>
+    <string name="bearImg">Bear Images</string>
+</resources>

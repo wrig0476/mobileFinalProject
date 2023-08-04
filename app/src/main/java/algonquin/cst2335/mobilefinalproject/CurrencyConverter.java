@@ -17,6 +17,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 
 public class CurrencyConverter extends AppCompatActivity {
 
@@ -57,13 +58,7 @@ public class CurrencyConverter extends AppCompatActivity {
 
 
         convertButton.setOnClickListener(v -> {
-
-
-            // Perform currency conversion here
             performCurrencyConversion();
-
-            //double editText1 = Double.parseDouble(String.valueOf(amountEditText.getText())) * 10;
-            //amount.setText(String.valueOf(editText1));
         });
 
     }
@@ -90,15 +85,24 @@ public class CurrencyConverter extends AppCompatActivity {
                     // Handle the API response here
                     try {
                         // Parse the JSON response and extract the converted amount
-                        String rateForAmountString = response.getString("rate_for_amount");
+                        JSONObject rates = response.getJSONObject("rates");
 
-                        Toast.makeText(CurrencyConverter.this, "converted amount: " + rateForAmountString, Toast.LENGTH_LONG).show();
-
-                        // Update the "convertAmount" EditText with the converted value
-                        //EditText convertAmountEditText = findViewById(R.id.convertAmount);
-                        double convertedAmount = Double.parseDouble(rateForAmountString);
-
-                        convertAmount.setText(String.valueOf(convertedAmount));
+                        if (toCurrency == "AUD") {
+                            JSONObject AUD = rates.getJSONObject("AUD");
+                            String rateForAmountString = AUD.getString("rate_for_amount");
+                            convertAmount.setText(String.format(rateForAmountString));
+                            Toast.makeText(CurrencyConverter.this, "converted amount: " + rateForAmountString, Toast.LENGTH_LONG).show();
+                        } else if (toCurrency == "CAD") {
+                            JSONObject CAD = rates.getJSONObject("CAD");
+                            String rateForAmountString = CAD.getString("rate_for_amount");
+                            convertAmount.setText(String.format(rateForAmountString));
+                            Toast.makeText(CurrencyConverter.this, "converted amount: " + rateForAmountString, Toast.LENGTH_LONG).show();
+                        } else {
+                            JSONObject USD = rates.getJSONObject("USD");
+                            String rateForAmountString = USD.getString("rate_for_amount");
+                            convertAmount.setText(String.format(rateForAmountString));
+                            Toast.makeText(CurrencyConverter.this, "converted amount: " + rateForAmountString, Toast.LENGTH_LONG).show();
+                        }
 
                     } catch (JSONException e) {
                         e.printStackTrace();

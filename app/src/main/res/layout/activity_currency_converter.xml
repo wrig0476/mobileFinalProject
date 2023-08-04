@@ -81,6 +81,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/convertButton"
+        android:background="@color/black"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/amountEditText"
         app:layout_constraintStart_toStartOf="@+id/amountEditText"
         app:layout_constraintTop_toTopOf="@+id/convertIcon"  />
@@ -90,7 +92,7 @@
         android:textColor="@color/black"
         android:textSize="18pt"
         android:layout_width="181dp"
-        android:layout_height="60dp"
+        android:layout_height="62dp"
         android:layout_marginLeft="120dp"
         android:layout_marginRight="32dp"
         android:inputType="number"

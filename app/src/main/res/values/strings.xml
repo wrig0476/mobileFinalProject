@@ -5,4 +5,8 @@
     <string name="converter">Currency Converter</string>
     <string name="trivia">Trivia Questions</string>
     <string name="bearImg">Bear Images</string>
+    <string name="convertButton">Convert</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="results">Conversion Results</string>
 </resources>

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/currencyConvBack"
     tools:context=".CurrencyConverter">
 
     <LinearLayout
@@ -18,7 +19,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Currency Converter"
+            android:text="@string/converter"
             android:textSize="10pt"
             android:gravity="center"
             android:layout_weight="1"
@@ -39,14 +40,128 @@
             />
     </LinearLayout>
 
+
+    <EditText
+        android:id="@+id/amountEditText"
+        android:textColor="@color/black"
+        android:textSize="18pt"
+        android:layout_width="181dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginRight="32dp"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.93"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topBar" />
+
     <TextView
+        android:id="@+id/From"
+        android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/from"
+        app:layout_constraintEnd_toStartOf="@+id/amountEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/amountEditText"
+        android:layout_marginTop="25dp"/>
+
+    <Spinner
+        android:id="@+id/fromSpinner"
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/amountEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/From" />
+
+    <Button
+        android:id="@+id/convertButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/convertButton"
+        app:layout_constraintEnd_toEndOf="@+id/amountEditText"
+        app:layout_constraintStart_toStartOf="@+id/amountEditText"
+        app:layout_constraintTop_toTopOf="@+id/convertIcon"  />
+
+    <EditText
+        android:id="@+id/convertAmount"
+        android:textColor="@color/black"
+        android:textSize="18pt"
+        android:layout_width="181dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginRight="32dp"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.93"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/convertButton" />
+
+    <TextView
+        android:id="@+id/To"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/to"
+        app:layout_constraintEnd_toStartOf="@+id/convertAmount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/convertAmount"
+        android:layout_marginTop="25dp"/>
+
+    <Spinner
+        android:id="@+id/toSpinner"
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/convertAmount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/To" />
+
+    <ImageView
+        android:id="@+id/convertIcon"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        app:layout_constraintBottom_toTopOf="@+id/To"
+        app:layout_constraintStart_toStartOf="@id/fromSpinner"
+        app:layout_constraintTop_toBottomOf="@+id/fromSpinner"
+        android:layout_marginLeft="41dp"
+        app:srcCompat="@drawable/convert" />
+
+    <LinearLayout
+        android:id="@+id/resultLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/resultsBackground"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="work under the linear layout, you can change the linear layout how you want just try keep some sort of home button"
-        android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@+id/topBar" />
+        app:layout_constraintTop_toBottomOf="@id/toSpinner"
+        android:layout_marginTop="35dp">
+
+        <TextView
+            android:id="@+id/Results"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="32dp"
+            android:text="@string/results"
+            android:textSize="8pt"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/convertAmount" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toStartOf="@+id/Results"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Results" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

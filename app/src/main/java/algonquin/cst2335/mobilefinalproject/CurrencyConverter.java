@@ -15,6 +15,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -44,7 +45,9 @@ public class CurrencyConverter extends AppCompatActivity {
     private RecyclerView.Adapter convertedAmountAdapter;
 
     ActivityCurrencyConverterBinding binding;
-    ArrayList<String> convertedAmounts = new ArrayList<>();
+    //ArrayList<String> convertedAmounts = new ArrayList<>();
+    CurrencyViewModel currencyViewModel;
+    ArrayList<String> convertedAmounts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +62,13 @@ public class CurrencyConverter extends AppCompatActivity {
         convertAmount = binding.convertAmount;
         convertButton = binding.convertButton;
 
+        currencyViewModel = new ViewModelProvider(this).get(CurrencyViewModel.class);
+        convertedAmounts = currencyViewModel.convertedAmounts.getValue();
+
+        if(convertedAmounts == null)
+        {
+            currencyViewModel.convertedAmounts.postValue( convertedAmounts = new ArrayList<String>() );
+        }
 
         binding.recycleView.setLayoutManager(new LinearLayoutManager(this));
         binding.recycleView.setAdapter(convertedAmountAdapter = new RecyclerView.Adapter<ConvertedAmountAdapter>() {
@@ -79,9 +89,11 @@ public class CurrencyConverter extends AppCompatActivity {
 
             @Override
             public int getItemCount() {
+
                 return convertedAmounts.size();
             }
             public int getItemViewType(int position){
+
                 return 0;
             }
         });
@@ -155,18 +167,13 @@ public class CurrencyConverter extends AppCompatActivity {
 
                             convertAmount.setText(finalAmount);
 
-
-                            convertedAmounts.add(binding.amountEditText.getText().toString());
                             convertedAmountAdapter.notifyItemInserted(convertedAmounts.size()-1);
-                            binding.amountEditText.setText("");
-
-
-
 
 
                             Toast.makeText(CurrencyConverter.this, "Converted amount: " + finalAmount, Toast.LENGTH_LONG).show();
 
-                            convertedAmounts.add(finalAmount);
+                            String formattedConversion = fromCurrency+" $"+binding.amountEditText.getText().toString()+" is "+toCurrency+" "+finalAmount;
+                            convertedAmounts.add(formattedConversion);
 
                             // Notify the adapter of the change
                             convertedAmountAdapter.notifyDataSetChanged();

@@ -43,7 +43,7 @@
 
     <EditText
         android:id="@+id/amountEditText"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="18pt"
         android:layout_width="181dp"
         android:layout_height="80dp"
@@ -58,7 +58,7 @@
 
     <TextView
         android:id="@+id/From"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/from"
@@ -89,12 +89,13 @@
 
     <EditText
         android:id="@+id/convertAmount"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="18pt"
         android:layout_width="181dp"
         android:layout_height="62dp"
         android:layout_marginLeft="120dp"
         android:layout_marginRight="32dp"
+        android:layout_marginTop="10dp"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.93"
@@ -103,7 +104,7 @@
 
     <TextView
         android:id="@+id/To"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/to"
@@ -148,10 +149,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="15dp"
             android:text="@string/results"
             android:textSize="8pt"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/convertAmount" />
@@ -160,10 +161,11 @@
             android:id="@+id/recycleView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toStartOf="@+id/Results"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Results" />
+            app:layout_constraintTop_toBottomOf="@+id/Results"
+            android:layout_marginTop="15dp"/>
 
     </LinearLayout>
 

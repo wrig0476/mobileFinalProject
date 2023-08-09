@@ -10,4 +10,11 @@
     <string name="to">To</string>
     <string name="results">Conversion Results</string>
     <string name="resultLayout">result goes here</string>
+    <string name="error">Error</string>
+    <string name="alertMenuTitle">Converter app instructions</string>
+    <string name="menuInstructions">start by selecting the currency that you want to comvert to and from, then enter the amount you want converted and click the convert button.</string>
+    <string name="emptyStringError">Please enter a valid amount.</string>
+    <string name="invalidConversionAlert">Cannot convert from the same currency</string>
+    <string name="APIAlert">Error parsing API response.</string>
+
 </resources>

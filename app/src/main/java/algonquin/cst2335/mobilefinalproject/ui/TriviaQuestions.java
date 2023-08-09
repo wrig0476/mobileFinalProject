@@ -1,4 +1,4 @@
-package algonquin.cst2335.mobilefinalproject;
+package algonquin.cst2335.mobilefinalproject.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+
+import algonquin.cst2335.mobilefinalproject.MainActivity;
+import algonquin.cst2335.mobilefinalproject.R;
 
 public class TriviaQuestions extends AppCompatActivity {
 

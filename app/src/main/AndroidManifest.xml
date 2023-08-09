@@ -15,17 +15,17 @@
         android:theme="@style/Theme.MobileFinalProject"
         tools:targetApi="31">
         <activity
-            android:name=".BearImage"
+            android:name=".ui.BearImage"
             android:exported="false" />
         <activity
-            android:name=".TriviaQuestions"
+            android:name=".ui.TriviaQuestions"
             android:exported="false" />
         <activity
-            android:name=".CurrencyConverter"
+            android:name=".ui.CurrencyConverter"
             android:exported="false"
             android:theme="@style/ConvertAppTheme" />
         <activity
-            android:name=".AviationTracker"
+            android:name=".ui.AviationTracker"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

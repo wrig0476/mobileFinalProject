@@ -7,6 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import algonquin.cst2335.mobilefinalproject.ui.AviationTracker;
+import algonquin.cst2335.mobilefinalproject.ui.BearImage;
+import algonquin.cst2335.mobilefinalproject.ui.CurrencyConverter;
+import algonquin.cst2335.mobilefinalproject.ui.TriviaQuestions;
+
 
 public class MainActivity extends AppCompatActivity {
 

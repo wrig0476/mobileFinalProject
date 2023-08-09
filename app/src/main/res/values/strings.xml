@@ -9,4 +9,5 @@
     <string name="from">From</string>
     <string name="to">To</string>
     <string name="results">Conversion Results</string>
+    <string name="resultLayout">result goes here</string>
 </resources>

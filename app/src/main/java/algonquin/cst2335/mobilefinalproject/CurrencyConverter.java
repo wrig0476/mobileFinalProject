@@ -31,6 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import algonquin.cst2335.mobilefinalproject.databinding.ActivityCurrencyConverterBinding;
+import algonquin.cst2335.mobilefinalproject.databinding.ConvertionResultsLayoutBinding;
 
 public class CurrencyConverter extends AppCompatActivity {
 
@@ -40,28 +41,50 @@ public class CurrencyConverter extends AppCompatActivity {
     private EditText amountEditText;
     private EditText convertAmount;
     private Button convertButton;
-    private RecyclerView recyclerView;
+    private RecyclerView.Adapter convertedAmountAdapter;
 
-    private ConvertedAmountAdapter convertedAmountAdapter;
-    private final List<String> convertedAmounts = new ArrayList<>();
+    ActivityCurrencyConverterBinding binding;
+    ArrayList<String> convertedAmounts = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_currency_converter);
+        binding = ActivityCurrencyConverterBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        imageButton = findViewById(R.id.imgButton);
-        fromSpinner = findViewById(R.id.fromSpinner);
-        toSpinner = findViewById(R.id.toSpinner);
-        amountEditText = findViewById(R.id.amountEditText);
-        convertAmount = findViewById(R.id.convertAmount);
-        convertButton = findViewById(R.id.convertButton);
+        imageButton = binding.imgButton;
+        fromSpinner = binding.fromSpinner;
+        toSpinner = binding.toSpinner;
+        amountEditText = binding.amountEditText;
+        convertAmount = binding.convertAmount;
+        convertButton = binding.convertButton;
 
-        recyclerView = findViewById(R.id.recycleView);
-        convertedAmountAdapter = new ConvertedAmountAdapter(convertedAmounts);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(convertedAmountAdapter);
 
+        binding.recycleView.setLayoutManager(new LinearLayoutManager(this));
+        binding.recycleView.setAdapter(convertedAmountAdapter = new RecyclerView.Adapter<ConvertedAmountAdapter>() {
+            @NonNull
+            @Override
+            public ConvertedAmountAdapter onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                ConvertionResultsLayoutBinding binding = ConvertionResultsLayoutBinding.inflate(getLayoutInflater());
+                return new ConvertedAmountAdapter(binding.getRoot());
+            }
+
+            @Override
+            public void onBindViewHolder(@NonNull ConvertedAmountAdapter holder, int position) {
+                holder.conversionResult.setText("");
+                String obj = convertedAmounts.get(position);
+                holder.conversionResult.setText(obj);
+
+            }
+
+            @Override
+            public int getItemCount() {
+                return convertedAmounts.size();
+            }
+            public int getItemViewType(int position){
+                return 0;
+            }
+        });
 
 
         imageButton.setOnClickListener(v -> {
@@ -131,6 +154,16 @@ public class CurrencyConverter extends AppCompatActivity {
                             String finalAmount = String.format("$%.2f", rateForAmountString);
 
                             convertAmount.setText(finalAmount);
+
+
+                            convertedAmounts.add(binding.amountEditText.getText().toString());
+                            convertedAmountAdapter.notifyItemInserted(convertedAmounts.size()-1);
+                            binding.amountEditText.setText("");
+
+
+
+
+
                             Toast.makeText(CurrencyConverter.this, "Converted amount: " + finalAmount, Toast.LENGTH_LONG).show();
 
                             convertedAmounts.add(finalAmount);
@@ -164,39 +197,12 @@ public class CurrencyConverter extends AppCompatActivity {
                 .show();
     }
 
-    class ConvertedAmountAdapter extends RecyclerView.Adapter<ConvertedAmountAdapter.ViewHolder> {
+    class ConvertedAmountAdapter extends RecyclerView.ViewHolder {
+        TextView conversionResult;
+         public ConvertedAmountAdapter(@NonNull View itemView) {
+            super(itemView);
 
-        private final List<String> data;
-
-        ConvertedAmountAdapter(List<String> data) {
-            this.data = data;
-        }
-
-        @NonNull
-        @Override
-        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            TextView textView = new TextView(parent.getContext());
-            textView.setPadding(16, 16, 16, 16);
-            return new ViewHolder(textView);
-        }
-
-        @Override
-        public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-            holder.textView.setText(data.get(position));
-        }
-
-        @Override
-        public int getItemCount() {
-            return data.size();
-        }
-
-        class ViewHolder extends RecyclerView.ViewHolder {
-            final TextView textView;
-
-            ViewHolder(@NonNull View itemView) {
-                super(itemView);
-                textView = (TextView) itemView;
-            }
+            conversionResult = itemView.findViewById(R.id.recyclerResults);
         }
     }
 

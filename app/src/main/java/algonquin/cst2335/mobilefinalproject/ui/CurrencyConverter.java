@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.android.volley.Request;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONObject;
 
@@ -265,14 +266,10 @@ public class CurrencyConverter extends AppCompatActivity {
     }
 
     /**
-     * this method creates an alert dialog for when you have not input a value to convert.
+     * this method creates a snack bar for when you have not input a value to convert.
      */
     private void emptyStringAlert() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(R.string.error)
-                .setMessage(R.string.emptyStringError)
-                .setPositiveButton("OK", null)
-                .show();
+        Snackbar.make(binding.getRoot(), R.string.emptyStringError, Snackbar.LENGTH_LONG).show();
     }
 
     /**

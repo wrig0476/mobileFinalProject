@@ -2,4 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="currencyConvBack">#61677A</color>
+    <color name="resultsBackground">#272829</color>
+<!--63e5ff-->
 </resources>

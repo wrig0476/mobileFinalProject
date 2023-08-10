@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">mobileFinalProject</string>
+    <string name="title">Projet Final</string>
+    <string name="aviationTracker">Traqueur D\'aviation</string>
+    <string name="converter">Convertisseur de devises</string>
+    <string name="trivia">Questions-réponses</string>
+    <string name="bearImg">Images D\'ours</string>
+    <string name="convertButton">Convertir</string>
+    <string name="from">Depuis</string>
+    <string name="to">Pour</string>
+    <string name="results">Résultats des conversions</string>
+    <string name="resultLayout">le résultat va ici</string>
+    <string name="error">Erreur</string>
+    <string name="alertMenuTitle">instructions de l\'application de conversion</string>
+    <string name="menuInstructions">Commencez par sélectionner la devise vers laquelle vous souhaitez effectuer la conversion, puis entrez le montant que vous souhaitez convertir et cliquez sur le bouton Convertir.</string>
+    <string name="emptyStringError">Veuillez entrer un montant valide.</string>
+    <string name="invalidConversionAlert">Impossible de convertir à partir de la même devise</string>
+    <string name="APIAlert">Erreur lors de l\'analyse de la réponse de l\'API.</string>
+</resources>

@@ -1,4 +1,4 @@
-package algonquin.cst2335.mobilefinalproject.ui;
+package algonquin.cst2335.mobilefinalproject;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,9 +28,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import algonquin.cst2335.mobilefinalproject.MainActivity;
-import algonquin.cst2335.mobilefinalproject.R;
-import algonquin.cst2335.mobilefinalproject.data.CurrencyViewModel;
 import algonquin.cst2335.mobilefinalproject.databinding.ActivityCurrencyConverterBinding;
 import algonquin.cst2335.mobilefinalproject.databinding.ConvertionResultsLayoutBinding;
 

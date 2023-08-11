@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"algonquin.cst2335.mobilefinalproject"},{"l":"algonquin.cst2335.mobilefinalproject.data"},{"l":"algonquin.cst2335.mobilefinalproject.databinding"},{"l":"All Packages","u":"allpackages-index.html"}];updateSearchResults();

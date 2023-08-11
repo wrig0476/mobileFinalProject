@@ -1,4 +1,4 @@
-package algonquin.cst2335.mobilefinalproject;
+package algonquin.cst2335.mobilefinalproject.data;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;

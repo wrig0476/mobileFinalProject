@@ -28,6 +28,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import algonquin.cst2335.mobilefinalproject.data.CurrencyViewModel;
 import algonquin.cst2335.mobilefinalproject.databinding.ActivityCurrencyConverterBinding;
 import algonquin.cst2335.mobilefinalproject.databinding.ConvertionResultsLayoutBinding;
 
